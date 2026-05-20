@@ -8,16 +8,21 @@ find_package(rclcpp REQUIRED)
 find_package(urdf REQUIRED)
 find_package(champ REQUIRED)
 find_package(champ_msgs REQUIRED)
-find_package(gazebo_ros2_control REQUIRED)
-find_package(gazebo_ros REQUIRED)
+find_package(gz-sim8 REQUIRED)
+find_package(simulation_interfaces REQUIRED)
+find_package(ros_gz_interfaces REQUIRED)
+find_package(ros_gz_sim REQUIRED)
+find_package(gz_ros2_control REQUIRED)
 
 set(dependencies
   rclcpp
+  gz-sim8
   urdf
   champ
   champ_msgs
-  gazebo_ros2_control
-  gazebo_ros
+  ros_gz_interfaces
+  gz_ros2_control
+  ros_gz_sim
 )
 
 install(PROGRAMS

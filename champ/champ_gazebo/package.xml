@@ -20,7 +20,10 @@
   <exec_depend>gazebo_ros_pkgs</exec_depend>
   <exec_depend>gazebo_plugins</exec_depend>
   <exec_depend>ros2_controllers</exec_depend>
-  <exec_depend>gazebo_ros2_control</exec_depend>
+  <exec_depend>gz_ros2_control</exec_depend>
+  <depend>simulation_interfaces</depend>
+  <depend>ros_gz_interfaces</depend>
+  <depend>ros_gz_sim</depend>
   <exec_depend>ros2_control</exec_depend>
   <exec_depend>ros2_controllers</exec_depend>
   

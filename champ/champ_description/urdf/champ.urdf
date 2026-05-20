@@ -430,7 +430,7 @@
         </joint> -->
   <ros2_control name="lf_hip" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="lf_hip_joint">
       <command_interface name="effort"/>
@@ -440,7 +440,7 @@
   </ros2_control>
   <ros2_control name="lf_upper_leg" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="lf_upper_leg_joint">
       <command_interface name="effort"/>
@@ -450,7 +450,7 @@
   </ros2_control>
   <ros2_control name="lf_lower_leg" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="lf_lower_leg_joint">
       <command_interface name="effort"/>
@@ -573,7 +573,7 @@
         </joint> -->
   <ros2_control name="lh_hip" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="lh_hip_joint">
       <command_interface name="effort"/>
@@ -583,7 +583,7 @@
   </ros2_control>
   <ros2_control name="lh_upper_leg" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="lh_upper_leg_joint">
       <command_interface name="effort"/>
@@ -593,7 +593,7 @@
   </ros2_control>
   <ros2_control name="lh_lower_leg" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="lh_lower_leg_joint">
       <command_interface name="effort"/>
@@ -716,7 +716,7 @@
         </joint> -->
   <ros2_control name="rf_hip" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="rf_hip_joint">
       <command_interface name="effort"/>
@@ -726,7 +726,7 @@
   </ros2_control>
   <ros2_control name="rf_upper_leg" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="rf_upper_leg_joint">
       <command_interface name="effort"/>
@@ -736,7 +736,7 @@
   </ros2_control>
   <ros2_control name="rf_lower_leg" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="rf_lower_leg_joint">
       <command_interface name="effort"/>
@@ -859,7 +859,7 @@
         </joint> -->
   <ros2_control name="rh_hip" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="rh_hip_joint">
       <command_interface name="effort"/>
@@ -869,7 +869,7 @@
   </ros2_control>
   <ros2_control name="rh_upper_leg" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="rh_upper_leg_joint">
       <command_interface name="effort"/>
@@ -879,7 +879,7 @@
   </ros2_control>
   <ros2_control name="rh_lower_leg" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     <joint name="rh_lower_leg_joint">
       <command_interface name="effort"/>

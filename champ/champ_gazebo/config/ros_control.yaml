@@ -7,7 +7,9 @@ controller_manager:
       type: joint_state_broadcaster/JointStateBroadcaster
 
     joint_group_effort_controller:
-      type: joint_trajectory_controller/JointTrajectoryController
+      type: forward_command_controller/ForwardCommandController
+      #type: joint_trajectory_controller/JointTrajectoryController
+
 
 joint_group_effort_controller:
   ros__parameters:
@@ -38,10 +40,10 @@ joint_group_effort_controller:
       rf_hip_joint        : {p: 100.0, i: 0.2, d: 1.0, i_clamp: 2.5}
       rf_upper_leg_joint  : {p: 100.0, i: 0.2, d: 1.0, i_clamp: 2.5}
       rf_lower_leg_joint  : {p: 100.0, i: 0.2, d: 1.0, i_clamp: 2.5}
-      lh_hip_joint        : {p: 100.0, i: 0.2, d: 1.0, i_clamp: 2.5}
+      lh_hip_joint        : {p: 300.0, i: 0.2, d: 1.0, i_clamp: 2.5}
       lh_upper_leg_joint  : {p: 100.0, i: 0.2, d: 1.0, i_clamp: 2.5}
       lh_lower_leg_joint  : {p: 100.0, i: 0.2, d: 1.0, i_clamp: 2.5}
-      rh_hip_joint        : {p: 100.0, i: 0.2, d: 1.0, i_clamp: 2.5}
+      rh_hip_joint        : {p: 300.0, i: 0.2, d: 1.0, i_clamp: 2.5}
       rh_upper_leg_joint  : {p: 100.0, i: 0.2, d: 1.0, i_clamp: 2.5}
       rh_lower_leg_joint  : {p: 100.0, i: 0.2, d: 1.0, i_clamp: 2.5}
       

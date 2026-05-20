@@ -2,30 +2,30 @@
 <robot>
 
     <gazebo>
-      <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
-        <ros>
-            <remapping>odom:=odom/ground_truth</remapping>
-        </ros>
-
-        <body_name>base_link</body_name>
-        <frame_name>world</frame_name>
-        <update_rate>10.0</update_rate>
+      <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+        <odom_frame>world</odom_frame>
+        <robot_base_frame>base_link</robot_base_frame>
+        <odom_publish_frequency>10.0</odom_publish_frequency>
         <xyz_offset>0 0 0</xyz_offset>
         <rpy_offset>0 0 0</rpy_offset>
-        <gaussian_noise>0.01</gaussian_noise>
-    </plugin>
+      </plugin>
     </gazebo>
 
     <gazebo>
-        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
         <parameters>$(find go2_description)/config/ros_control/ros_control.yaml</parameters>
+        <robot_param>robot_description</robot_param>
+        <robot_param_node>robot_state_publisher</robot_param_node>
       </plugin>
     </gazebo>
+
+
 
     <gazebo reference="imu_link">
         <sensor name="imu_sensor" type="imu">
             <always_on>true</always_on>
             <update_rate>100</update_rate>
+            <topic>imu/data</topic>
             <imu>
             <angular_velocity>
                 <x>
@@ -68,11 +68,7 @@
                 </z>
             </linear_acceleration>
             </imu>
-            <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
-                <ros>
-                    <namespace>imu</namespace>
-                    <remapping>~/out:=data</remapping>
-                </ros>
+            <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
                 <initial_orientation_as_reference>false</initial_orientation_as_reference>
             </plugin>
         </sensor>
@@ -115,12 +111,20 @@
     <gazebo reference="lf_lower_leg_link">
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
-        <self_collide>1</self_collide>
+        <self_collide>0</self_collide>
+       <sensor name="lf_foot_contact" type="contact">
+         <always_on>true</always_on>
+         <update_rate>25.0</update_rate>
+         <contact>
+           <collision>lf_lower_leg_link_fixed_joint_lump__lf_foot_link_collision_1</collision>
+         </contact>
+         <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact" />
+       </sensor>
     </gazebo>
     <gazebo reference="lf_foot_link">
         <mu1>0.6</mu1>
         <mu2>0.6</mu2>
-        <self_collide>1</self_collide>
+        <self_collide>0</self_collide>
         <kp>10000.0</kp>
         <kd>1.0</kd>
     </gazebo>
@@ -141,6 +145,14 @@
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
         <self_collide>1</self_collide>
+        <sensor name="rf_foot_contact" type="contact">
+        <always_on>true</always_on>
+        <update_rate>25.0</update_rate>
+        <contact>
+          <collision>rf_lower_leg_link_fixed_joint_lump__rf_foot_link_collision_1</collision>
+        </contact>
+        <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact" />
+      </sensor>
     </gazebo>
     <gazebo reference="rf_foot_link">
         <mu1>0.6</mu1>
@@ -166,6 +178,14 @@
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
         <self_collide>1</self_collide>
+  <sensor name="lh_foot_contact" type="contact">
+    <always_on>true</always_on>
+    <update_rate>25.0</update_rate>
+    <contact>
+      <collision>lh_lower_leg_link_fixed_joint_lump__lh_foot_link_collision_1</collision>
+    </contact>
+    <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact" />
+  </sensor>
     </gazebo>
     <gazebo reference="lh_foot_link">
         <mu1>0.6</mu1>
@@ -191,6 +211,14 @@
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
         <self_collide>1</self_collide>
+       <sensor name="rh_foot_contact" type="contact">
+         <always_on>true</always_on>
+         <update_rate>25.0</update_rate>
+         <contact>
+           <collision>rh_lower_leg_link_fixed_joint_lump__rh_foot_link_collision_1</collision>
+         </contact>
+         <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact" />
+       </sensor>
     </gazebo>
     <gazebo reference="rh_foot_link">
         <mu1>0.6</mu1>
@@ -199,5 +227,4 @@
         <kp>10000.0</kp>
         <kd>1.0</kd>
     </gazebo>
-
 </robot>
